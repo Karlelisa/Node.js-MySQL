@@ -22,43 +22,23 @@ connection.connect(function (err) {
 });
 
 
-//err is error. res is the result
-// function afterConnection() {
-//     connection.query("SELECT * FROM products", function (err, res) {
-//             if (err) throw err;
-//             console.log(res);
-//             console.table(res);
-//             connection.end();
-
-//             // for (var i = 0; i < res.length; i++) {
-//             //     console.log("ID: " + res[i].item_ID + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].StockQuantity);
-//             //     console.log('--------------------------------------------------------------------------------------------------')
-
-//             // }
-
-//         }
-//     }
 // Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
-// The first should ask them the ID of the product they would like to buy.
-// The second message should ask how many units of the product they would like to buy.
 
 function start() {
     //prints the items for sale and their details
     connection.query('SELECT * FROM Products', function (err, res) {
         if (err) throw err;
-        console.log("~ Welcome To Bamazon! ~")
+        console.log("~.~.~.~.~.~.~.~ Welcome To Bamazon! ~.~.~.~.~.~.~.~")
         console.table(res);
 
-        // console.log('_.~"~._.~"~._.~Welcome to BAMazon~._.~"~._.~"~._')
-        // console.log('----------------------------------------------------------------------------------------------------')
+        // for (var i = 0; i < res.length; i++) {
+        //     console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].department_name + " | " + res[i].price);
+        //   }
+        //   console.log("-----------------------------------");
+        // });
 
-        //for (let i = 0; i < res.length; i++) {
-        //console.table(res[i].item_id + res[i].product_name + res[i].department_name + res[i].price);
-        //     console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
-        //     console.log('--------------------------------------------------------------------------------------------------')
-        //}
 
-        // console.log(' ');
+        // The first message should ask them the ID of the product they would like to buy.
         inquirer.prompt([{
                 type: "input",
                 name: "id",
@@ -71,6 +51,7 @@ function start() {
                 }
             },
             {
+                // The second message should ask how many units of the product they would like to buy.
                 type: "input",
                 name: "qty",
                 message: "How much would you like to purchase?",
@@ -82,29 +63,29 @@ function start() {
                     }
                 }
             }
-        ]).then(function (ans) {
-            var whatToBuy = (ans.id) - 1;
-            var howMuchToBuy = parseInt(ans.qty);
-            var grandTotal = parseFloat(((res[whatToBuy].price) * howMuchToBuy).toFixed(2));
+        ]).then(function (answer) {
+            let whatToBuy = (answer.id) - 1;
+            let howMuchToBuy = parseInt(answer.qty);
+            let grandTotal = parseFloat(((res[whatToBuy].price) * howMuchToBuy).toFixed(2));
 
-            //check if quantity is sufficient
+            // function to check if quantity is sufficient
             if (res[whatToBuy].stock_quantity >= howMuchToBuy) {
                 //after purchase, updates quantity in Products
                 connection.query("UPDATE Products SET ? WHERE ?", [{
                         stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)
                     },
                     {
-                        item_id: ans.id
+                        item_id: answer.id
                     }
                 ], function (err, result) {
                     if (err) throw err;
-                    console.log("Success! Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");
+                    console.log("Order Received! Your total is $" + grandTotal.toFixed(2) + ". Thank you for your purchase!");
                 });
 
                 connection.query("SELECT * FROM Departments", function (err, deptRes) {
                     if (err) throw err;
-                    var index;
-                    for (var i = 0; i < deptRes.length; i++) {
+                    let index;
+                    for (let i = 0; i < deptRes.length; i++) {
                         if (deptRes[i].department_name === res[whatToBuy].department_name) {
                             index = i;
                         }
@@ -138,14 +119,14 @@ function reprompt() {
         type: "confirm",
         name: "reply",
         message: "Would you like to purchase another item?"
-    }]).then(function (ans) {
-        if (ans.reply) {
+    }]).then(function (answer) {
+        if (answer.reply) {
             start();
         } else {
-            console.log("See you soon!");
+            console.log("Thanks for stopping by. Come back soon!");
             connection.end();
         }
     });
 }
 
-start();
+//start();
