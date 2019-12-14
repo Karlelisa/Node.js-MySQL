@@ -22,12 +22,13 @@ connection.connect(function (err) {
 });
 
 
-// Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
+// Running this application will first display all of the items available for sale. 
 
 function start() {
     connection.query('SELECT * FROM Products', function (err, res) {
         if (err) throw err;
         console.log("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~ Welcome To Bamazon! ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~")
+        // I'm using console.table() to nicely display the data of all of the items. Using this automatically populates an irrelevant  index column for this assignment.
         console.table(res);
         // console.log('--------------------------------------------------------------------------------------------------')
 
@@ -41,8 +42,8 @@ function start() {
 
         // The first message should ask them the ID of the product they would like to buy.
         inquirer.prompt([{
-                type: "input",
                 name: "id",
+                type: "input",
                 message: "What is the item ID number of the product you would like to purchase?",
                 validate: function (value) {
                     if (isNaN(value) === false) {
@@ -53,8 +54,8 @@ function start() {
             },
             {
                 // The second message should ask how many units of the product they would like to buy.
-                type: "input",
                 name: "qty",
+                type: "input",
                 message: "How much would you like to purchase?",
                 validate: function (value) {
                     if (isNaN(value)) {
@@ -65,15 +66,16 @@ function start() {
                 }
             }
         ]).then(function (answer) {
-            let whatToBuy = (answer.id) - 1;
-            let howMuchToBuy = parseInt(answer.qty);
-            let grandTotal = parseFloat(((res[whatToBuy].price) * howMuchToBuy).toFixed(2));
+            let itemsToPurchase = (answer.id) - 1;
+            let howMuchToPurchase = parseInt(answer.qty);
+            //Cited for the .toFixed(2) function: https://www.w3schools.com/jsref/jsref_tofixed.asp. Converting a number into a string, keeping only two decimals.
+            let grandTotal = parseFloat(((res[itemsToPurchase].price) * howMuchToPurchase).toFixed(2));
 
             // function to check if quantity is sufficient
-            if (res[whatToBuy].stock_quantity >= howMuchToBuy) {
+            if (res[itemsToPurchase].stock_quantity >= howMuchToPurchase) {
                 //after purchase, updates quantity in Products
                 connection.query("UPDATE Products SET ? WHERE ?", [{
-                        stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)
+                        stock_quantity: (res[itemsToPurchase].stock_quantity - howMuchToPurchase)
                     },
                     {
                         item_id: answer.id

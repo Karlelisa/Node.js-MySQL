@@ -18,7 +18,7 @@ In this homework assignment, I created an Amazon-like storefront with the MySQL 
 
 * Populate this database with around 10 different products. (i.e. Insert "mock" data rows into this database and table).
 
-* Then create a Node application called bamazonCustomer.js. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
+* Then create a Node application called bamazonCustomer.js. Running this application will first display all of the items available for sale. 
 
 * The app should then prompt users with two messages:
 
@@ -27,7 +27,7 @@ In this homework assignment, I created an Amazon-like storefront with the MySQL 
 
 * Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
 
-* If not, the app should log a phrase like Insufficient quantity!, and then prevent the order from going through.
+* If not, the app should log a phrase like "Insufficient quantity!", and then prevent the order from going through.
 
 * However, if your store does have enough of the product, you should fulfill the customer's order.
 
@@ -37,22 +37,30 @@ In this homework assignment, I created an Amazon-like storefront with the MySQL 
 
 
 
-### My terminal screenshot of fulling a customer's order:
+### My terminal screenshot of fulfilling a customer's order:
 
-![successful customer order screenshot](/images/concert-this.png)
-
-
-### My terminal screenshot of a customer requesting insufficient quantity:
-
-![insufficient quantity screenshot](/images/spotify-this-song.png)
-
-<!-- 
-### My movie-this terminal screenshot:
-
-![movie-this screenshot](/images/movie-this.png)
-![movie-this screenshot](/images/movie-this2.png)
+![successful customer order screenshot](/images/fulfilling-a-customers-purchase.png)
 
 
-### My do-what-it-says terminal screenshot:
+### My terminal screenshot of a customer requesting insufficient quantity and inputs YES to select another item:
 
-![do-what-it-says screenshot](/images/do-what-it-says.png) -->
+![insufficient quantity screenshot](/images/insufficient-quantity-and-YES-to-selecting-another-item.png)
+
+### terminal screenshot of a customer requesting insufficient quantity and inputs NO to select another item:
+
+![insufficient quantity screenshot](/images/insufficient-quantity-and-NO-to-selecting-another-item.png)
+
+
+### My terminal screenshot of stock quantity updating after a successful purchase:
+In the below screenshot you will see that after a purchase of 2 pairs of shoes which is item ID 3, the stock quantity of this item goes from 100 (in the first table) to 98 (in the second table). The second table reflects the remaining quantity.
+
+![successful customer order screenshot](/images/my-terminal-screenshot-of-stock-quantity-updating.png)
+
+
+<!-- ### My mySQL Workbench screenshot of the above shoes stock quantity updating: -->
+### My MySQL Workbench screenshot of updating the SQL database to reflect the remaining quantity:
+The directly above stock quantity update of the shoes item ID 3 in mySQL databse to a remaining quantity of 98.
+
+![successful customer order screenshot](/images/mySQL-workbench-screenshot-of-the-above-shoes-item-ID-3-stock-quantity-update-to-98-units.png)
+
+
