@@ -54,13 +54,13 @@ In this homework assignment, I created an Amazon-like storefront with the MySQL 
 ### My terminal screenshot of stock quantity updating after a successful purchase:
 In the below screenshot you will see that after a purchase of 2 pairs of shoes which is item ID 3, the stock quantity of this item goes from 100 (in the first table) to 98 (in the second table). The second table reflects the remaining quantity.
 
-![successful customer order screenshot](/images/my-terminal-screenshot-of-stock-quantity-updating.png)
+![stock quantity update screenshot](/images/my-terminal-screenshot-of-stock-quantity-updating.png)
 
 
 <!-- ### My mySQL Workbench screenshot of the above shoes stock quantity updating: -->
 ### My MySQL Workbench screenshot of updating the SQL database to reflect the remaining quantity:
 The directly above stock quantity update of the shoes item ID 3 in mySQL databse to a remaining quantity of 98.
 
-![successful customer order screenshot](/images/mySQL-workbench-screenshot-of-the-above-shoes-item-ID-3-stock-quantity-update-to-98-units.png)
+![My MySQL database screenshot](/images/mySQL-workbench-screenshot-of-the-above-shoes-item-ID-3-stock-quantity-update-to-98-units.png)
 
 
