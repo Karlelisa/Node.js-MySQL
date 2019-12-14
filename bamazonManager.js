@@ -24,10 +24,31 @@ function afterConnection() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
         // console.log(res);
-        console.table(res);
-        connection.end();
+        //console.table(res);
+        //connection.end();
+        start();
     });
 }
 
-// The first should ask them the ID of the product they would like to buy.
-// The second message should ask how many units of the product they would like to buy.
+function start() {
+    inquirer.prompt([{
+            name: "managerSelection",
+            type: "list",
+            message: "What would you like to do?",
+            choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product", "Exit"]
+        }])
+        .then(function (answer) {
+            //based on their answer, either all the bid of the post functions
+            if (answer.managerSelection === "View Products for Sale") {
+                productsForSale();
+            } else if (answer.managerSelection === "View Low Inventory") {
+                viewLowInventory();
+            } else if (answer.managerSelection === "Add to Inventory") {
+                addToInventory();
+            } else if (answer.managerSelection === "Add New Product") {
+                addNewProduct();
+            } else {
+                connection.end();
+            }
+        });
+}

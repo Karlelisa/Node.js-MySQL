@@ -25,17 +25,18 @@ connection.connect(function (err) {
 // Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
 
 function start() {
-    //prints the items for sale and their details
     connection.query('SELECT * FROM Products', function (err, res) {
         if (err) throw err;
-        console.log("~.~.~.~.~.~.~.~ Welcome To Bamazon! ~.~.~.~.~.~.~.~")
+        console.log("~.~.~.~.~.~.~.~.~.~.~.~.~.~.~ Welcome To Bamazon! ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~")
         console.table(res);
+        // console.log('--------------------------------------------------------------------------------------------------')
 
-        // for (var i = 0; i < res.length; i++) {
-        //     console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].department_name + " | " + res[i].price);
-        //   }
-        //   console.log("-----------------------------------");
-        // });
+
+        // for (let i = 0; i < res.length; i++) {
+        //     console.table("Item ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
+        //     console.log('--------------------------------------------------------------------------------------------------')
+        // }
+
 
 
         // The first message should ask them the ID of the product they would like to buy.
@@ -80,35 +81,35 @@ function start() {
                 ], function (err, result) {
                     if (err) throw err;
                     console.log("Order Received! Your total is $" + grandTotal.toFixed(2) + ". Thank you for your purchase!");
+                    connection.end();
                 });
 
-                connection.query("SELECT * FROM Departments", function (err, deptRes) {
-                    if (err) throw err;
-                    let index;
-                    for (let i = 0; i < deptRes.length; i++) {
-                        if (deptRes[i].department_name === res[whatToBuy].department_name) {
-                            index = i;
-                        }
-                    }
+                // connection.query("SELECT * FROM Departments", function (err, deptRes) {
+                //     if (err) throw err;
+                //     let index;
+                //     for (let i = 0; i < deptRes.length; i++) {
+                //         if (deptRes[i].department_name === res[whatToBuy].department_name) {
+                //             index = i;
+                //         }
+                //     }
 
-                    //updates totalSales in departments table
-                    connection.query("UPDATE Departments SET ? WHERE ?", [{
-                            TotalSales: deptRes[index].TotalSales + grandTotal
-                        },
-                        {
-                            department_name: res[whatToBuy].department_name
-                        }
-                    ], function (err, deptRes) {
-                        if (err) throw err;
-                        //console.log("Updated Dept Sales.");
-                    });
-                });
+                //     //updates totalSales in departments table
+                //     connection.query("UPDATE Departments SET ? WHERE ?", [{
+                //             TotalSales: deptRes[index].TotalSales + grandTotal
+                //         },
+                //         {
+                //             department_name: res[whatToBuy].department_name
+                //         }
+                //     ], function (err, deptRes) {
+                //         if (err) throw err;
+                //         //console.log("Updated Dept Sales.");
+                //     });
+                // });
 
             } else {
                 console.log("Sorry, there's not enough in stock!");
+                reprompt();
             }
-
-            reprompt();
         })
     })
 }
