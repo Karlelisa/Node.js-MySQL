@@ -1,3 +1,5 @@
+//Cited: IceCream, GreatBay and PlayListRead class activties
+
 let mysql = require("mysql");
 let inquirer = require("inquirer");
 require("dotenv").config()
@@ -19,7 +21,6 @@ connection.connect(function (err) {
     afterConnection();
 });
 
-//err is error. res is the result
 function afterConnection() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
@@ -38,17 +39,27 @@ function start() {
             choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product", "Exit"]
         }])
         .then(function (answer) {
-            //based on their answer, either all the bid of the post functions
+            //based on the manager's answer, there are post functions
             if (answer.managerSelection === "View Products for Sale") {
                 productsForSale();
             } else if (answer.managerSelection === "View Low Inventory") {
                 viewLowInventory();
             } else if (answer.managerSelection === "Add to Inventory") {
-                addToInventory();
+                //addToInventory();
             } else if (answer.managerSelection === "Add New Product") {
-                addNewProduct();
+                //addNewProduct();
             } else {
                 connection.end();
             }
         });
+}
+
+function productsForSale() {
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) throw err;
+        // console.log(res);
+        console.table(res);
+        connection.end();
+
+    });
 }
