@@ -46,7 +46,7 @@ In this homework assignment, I created an Amazon-like storefront with the MySQL 
 
 ![insufficient quantity screenshot](/images/insufficient-quantity-and-YES-to-selecting-another-item.png)
 
-### terminal screenshot of a customer requesting insufficient quantity and inputs NO to select another item:
+### My terminal screenshot of a customer requesting insufficient quantity and inputs NO to select another item:
 
 ![insufficient quantity screenshot](/images/insufficient-quantity-and-NO-to-selecting-another-item.png)
 
@@ -62,5 +62,49 @@ In the below screenshot you will see that after a purchase of 2 pairs of shoes w
 The directly above stock quantity update of the shoes item ID 3 in mySQL databse to a remaining quantity of 98.
 
 ![My MySQL database screenshot](/images/mySQL-workbench-screenshot-of-the-above-shoes-item-ID-3-stock-quantity-update-to-98-units.png)
+
+
+### Manager View 
+Create a new Node application called bamazonManager.js. Running this application will:
+
+* List a set of menu options:
+1. View Products for Sale
+2. View Low Inventory
+3. Add to Inventory
+4. Add New Product
+
+* If a manager selects View Products for Sale, the app should list every available item: the item IDs, names, prices, and quantities.
+
+* If a manager selects View Low Inventory, then it should list all items with an inventory count lower than five.
+
+* If a manager selects Add to Inventory, your app should display a prompt that will let the manager "add more" of any item currently in the store.
+
+* If a manager selects Add New Product, it should allow the manager to add a completely new product to the store.
+
+
+### My terminal screenshot of the prompt questions of the start of bamazonManager.js:
+
+![view products for sale screenshot](/images/fulfilling-a-customers-purchase.png)
+
+
+### My terminal screenshot of view products for sale:
+
+![view products for sale screenshot](/images/fulfilling-a-customers-purchase.png)
+
+
+### My terminal screenshot of view low inventory:
+
+![view low inventory screenshot](/images/fulfilling-a-customers-purchase.png)
+
+
+### My terminal screenshot of add to inventory:
+
+![add to inventory screenshot](/images/fulfilling-a-customers-purchase.png)
+
+
+### My terminal screenshot of add new product:
+
+![add new product screenshot](/images/fulfilling-a-customers-purchase.png)
+
 
 
