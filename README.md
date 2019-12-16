@@ -82,29 +82,41 @@ Create a new Node application called bamazonManager.js. Running this application
 * If a manager selects Add New Product, it should allow the manager to add a completely new product to the store.
 
 
-### My terminal screenshot of the prompt questions of the start of bamazonManager.js:
+### My terminal screenshot of the prompt questions of the start of my bamazonManager.js app:
 
-![view products for sale screenshot](/images/fulfilling-a-customers-purchase.png)
-
+![view products for sale screenshot](/images/manager/prompt-questions-to-the-start-of-my-bamazonManager-js-app.png)
+ 
 
 ### My terminal screenshot of view products for sale:
 
-![view products for sale screenshot](/images/fulfilling-a-customers-purchase.png)
+![view products for sale screenshot](/images/manager/myViewProductsForSaleTerminalScreenshot.png)
 
 
-### My terminal screenshot of view low inventory:
+### My terminal screenshots of add new product:
 
-![view low inventory screenshot](/images/fulfilling-a-customers-purchase.png)
+![add new product screenshot](/images/manager/myAddNewProductTerminalScreenshots1.png)
 
-
-### My terminal screenshot of add to inventory:
-
-![add to inventory screenshot](/images/fulfilling-a-customers-purchase.png)
+![add new product screenshot](/images/manager/myAddNewProductTerminalScreenshots2.png)
 
 
-### My terminal screenshot of add new product:
+### My screenshots of add to inventory:
 
-![add new product screenshot](/images/fulfilling-a-customers-purchase.png)
+* My terminal screenshot of selecting Add to Inventory:
+![add to inventory screenshot](/images/manager/myAddToInventoryTerminalScreenshots1.png)
 
+* My terminal screenshot of adding a quanity of 5 to skirts:
+![add to inventory screenshot](/images/manager/myAddToInventoryTerminalScreenshots2.png)
+
+* My MySQL Workbench screenshot of the above skirt quantity update displayed in my MySQL database:
+![add to inventory screenshot](/images/manager/myAddToInventoryMySQL-DatabaseScreenshot.png)
+
+
+### My screenshots of view low inventory:
+
+* I updated my MySQL database to have some products (jeans and necklace) with a quantity less than 5:
+![view low inventory screenshot](/images/manager/myViewLowInventoryMySQL-Screenshots.png)
+
+* My terminal screenshot of view low inventory:
+![view low inventory screenshot](/images/manager/myViewLowInventoryTerminalScreenshot.png)
 
 
