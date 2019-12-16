@@ -2,7 +2,7 @@
 ## BAMAZON
 In this homework assignment, I created an Amazon-like storefront with the MySQL and Node.js. The app will take in orders from customers and deplete stock from the store's inventory. The app needs MySQL and Inquirer npm packages for data input and storage.
 
-### Customer View 
+## Bamazon: Customer View 
 
 * Create a MySQL Database called bamazon.
 
@@ -64,7 +64,8 @@ The directly above stock quantity update of the shoes item ID 3 in mySQL databse
 ![My MySQL database screenshot](/images/mySQL-workbench-screenshot-of-the-above-shoes-item-ID-3-stock-quantity-update-to-98-units.png)
 
 
-### Manager View 
+
+## Bamazon: Manager View 
 Create a new Node application called bamazonManager.js. Running this application will:
 
 * List a set of menu options:
@@ -102,21 +103,26 @@ Create a new Node application called bamazonManager.js. Running this application
 ### My screenshots of add to inventory:
 
 * My terminal screenshot of selecting Add to Inventory:
+
 ![add to inventory screenshot](/images/manager/myAddToInventoryTerminalScreenshots1.png)
 
 * My terminal screenshot of adding a quanity of 5 to skirts:
+
 ![add to inventory screenshot](/images/manager/myAddToInventoryTerminalScreenshots2.png)
 
 * My MySQL Workbench screenshot of the above skirt quantity update displayed in my MySQL database:
+
 ![add to inventory screenshot](/images/manager/myAddToInventoryMySQL-DatabaseScreenshot.png)
 
 
 ### My screenshots of view low inventory:
 
 * I updated my MySQL database to have some products (jeans and necklace) with a quantity less than 5:
+
 ![view low inventory screenshot](/images/manager/myViewLowInventoryMySQL-Screenshots.png)
 
 * My terminal screenshot of view low inventory:
+
 ![view low inventory screenshot](/images/manager/myViewLowInventoryTerminalScreenshot.png)
 
 
